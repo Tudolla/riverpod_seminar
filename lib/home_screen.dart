@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
+import 'package:riverpod_seminar/pages/change_notifier_page.dart';
+import 'package:riverpod_seminar/pages/future_provider_page.dart';
 import 'package:riverpod_seminar/pages/provider_page.dart';
 import 'package:riverpod_seminar/pages/state_provider_page.dart';
+import 'package:riverpod_seminar/pages/stream_provider_page.dart';
 
 class Lamborghini extends StatefulWidget {
   const Lamborghini({super.key});
@@ -102,7 +106,9 @@ class _LamborghiniState extends State<Lamborghini> {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.orangeAccent.withOpacity(0.5)),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const FutureProviderPage());
+                  },
                   child: const Text(
                     "Future Provider",
                     style: TextStyle(
@@ -124,7 +130,9 @@ class _LamborghiniState extends State<Lamborghini> {
                   color: Colors.lightBlue.withOpacity(0.5),
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const StreamProviderPage());
+                  },
                   child: const Text(
                     "Stream Provider",
                     style: TextStyle(
@@ -145,7 +153,9 @@ class _LamborghiniState extends State<Lamborghini> {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.brown.withOpacity(0.5)),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const ChangeNotifierProvierPage());
+                  },
                   child: const Text(
                     "Change Notifier Provider",
                     style: TextStyle(

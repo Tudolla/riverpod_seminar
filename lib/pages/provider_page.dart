@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final valueProvider = Provider<int>((ref) => 10);
+final valueProvider = Provider<String>((ref) => "Sunday King");
 
 class ProviderPage extends ConsumerWidget {
   const ProviderPage({super.key});
@@ -20,16 +20,16 @@ class ProviderPage extends ConsumerWidget {
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
 
-      // body: Center(
-      //   child: Text(
-      //     "The value is ${ref.watch(valueProvider)}",
-      //     style: const TextStyle(
-      //       fontFamily: "fontApp",
-      //       fontSize: 25,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //   ),
-      // ),
+      body: Center(
+        child: Text(
+          "The value is ${ref.watch(valueProvider)}",
+          style: const TextStyle(
+            fontFamily: "fontApp",
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
 
       // Method 2 ===================================================
 

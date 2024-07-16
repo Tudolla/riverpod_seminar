@@ -9,8 +9,8 @@ class Suggestion {
     required this.type,
   });
 
-  // factory Suggestion.fromJson(Map<String, dynamic> json ) =>
-  // Suggestion(activity: json["activity"], type: json["type"] );
+  factory Suggestion.fromJson(Map<String, dynamic> json) =>
+      Suggestion(activity: json["activity"], type: json["type"]);
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -28,6 +28,6 @@ class Suggestion {
 
   String toJson() => json.encode(toMap());
 
-  factory Suggestion.fromJson(String source) =>
-      Suggestion.fromMap(json.decode(source) as Map<String, dynamic>);
+  // factory Suggestion.fromJson(String source) =>
+  //     Suggestion.fromMap(json.decode(source) as Map<String, dynamic>);
 }

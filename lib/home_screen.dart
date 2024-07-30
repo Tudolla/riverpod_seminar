@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:riverpod_seminar/pages/change_notifier_page.dart';
+import 'package:riverpod_seminar/pages/change_notifier_provider_page.dart';
+import 'package:riverpod_seminar/pages/future_provider_page.dart';
 import 'package:riverpod_seminar/pages/future_provider_page.dart';
 import 'package:riverpod_seminar/pages/provider_page.dart';
+import 'package:riverpod_seminar/pages/state_notifier_provider_page.dart';
 import 'package:riverpod_seminar/pages/state_provider_page.dart';
 import 'package:riverpod_seminar/pages/stream_provider_page.dart';
 
@@ -85,7 +87,9 @@ class _LamborghiniState extends State<Lamborghini> {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.purple.withOpacity(0.4)),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const StateNotifierProviderPage());
+                  },
                   child: const Text(
                     "State Notifier Provider",
                     style: TextStyle(
@@ -154,7 +158,7 @@ class _LamborghiniState extends State<Lamborghini> {
                     color: Colors.brown.withOpacity(0.5)),
                 child: TextButton(
                   onPressed: () {
-                    Get.to(() => const ChangeNotifierProvierPage());
+                    Get.to(() => const ChangeNotifierProviderPage());
                   },
                   child: const Text(
                     "Change Notifier Provider",

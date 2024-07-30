@@ -4,7 +4,6 @@ final streamServiceProvider = Provider<StreamService>((ref) => StreamService());
 
 class StreamService {
   Stream<int> getStream() {
-    return Stream.periodic(const Duration(milliseconds: 10), (i) => i)
-        .take(10000);
+    return Stream.periodic(const Duration(seconds: 1), (i) => i).take(10000);
   }
 }

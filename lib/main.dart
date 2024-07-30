@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:riverpod_seminar/home_screen.dart';
 
 void main() {
-  runApp(ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_seminar/providers/provider.dart';
 
-final valueProvider = Provider<String>((ref) => "Sunday King");
+// final valueProvider = Provider<String>((ref) => "Hello Provider 2");
 
 class ProviderPage extends ConsumerWidget {
   const ProviderPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final getNameProvider = ref.read(nameProvider);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -21,13 +24,19 @@ class ProviderPage extends ConsumerWidget {
       ),
 
       body: Center(
-        child: Text(
-          "The value is ${ref.watch(valueProvider)}",
-          style: const TextStyle(
-            fontFamily: "fontApp",
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              getNameProvider,
+              style: const TextStyle(
+                color: Colors.green,
+                fontFamily: "fontApp",
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
 
@@ -37,8 +46,8 @@ class ProviderPage extends ConsumerWidget {
       //   builder: (BuildContext context, WidgetRef ref, Widget? child) {
       //     return Center(
       //       child: Text(
-      //         "The value of provider is : ${ref.watch(valueProvider)}",
-      //         style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+      //         "Return: ${ref.watch(nameProvider)}",
+      //         style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       //       ),
       //     );
       //   },

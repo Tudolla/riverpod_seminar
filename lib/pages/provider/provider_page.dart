@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/providers/provider.dart';
+import 'package:riverpod_seminar/pages/provider/provider.dart';
 
 // final valueProvider = Provider<String>((ref) => "Hello Provider 2");
 

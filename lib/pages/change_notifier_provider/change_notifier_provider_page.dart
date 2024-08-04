@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/providers/state_notifier_provider.dart';
+import 'package:riverpod_seminar/pages/change_notifier_provider/change_notifier_provider.dart';
 
-class StateNotifierProviderPage extends ConsumerStatefulWidget {
+import '../../models/user_change_notifier_provider_model.dart';
+
+class ChangeNotifierProviderPage extends ConsumerStatefulWidget {
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _StateNotifierProviderPageState();
+      _ChangeNotifierProviderPageState();
 
-  const StateNotifierProviderPage({super.key});
+  const ChangeNotifierProviderPage({super.key});
 }
 
-class _StateNotifierProviderPageState
-    extends ConsumerState<StateNotifierProviderPage> {
+class _ChangeNotifierProviderPageState
+    extends ConsumerState<ChangeNotifierProviderPage> {
   final _nameController = TextEditingController();
   final _ageController = TextEditingController();
 
-  void _onSubmit(WidgetRef ref, String inputValue) {
-    ref.read(userProvider.notifier).updateName(inputValue);
-  }
-
   void _onSubmitAll(WidgetRef ref, String inputAge, String inputName) {
-    ref.read(userProvider.notifier).updateAge(int.parse(inputAge));
-    _onSubmit(ref, inputName);
+    // ref.read(userProvider.notifier).updateAge(int.parse(inputAge));
+    // ref.read(userProvider.notifier).updateNameChange(inputName);
+
+    ref.read(userChangeNotifierProvider).updateAgeChange(int.parse(inputAge));
+    ref.read(userChangeNotifierProvider).updateNameChange(inputName);
   }
 
   @override
@@ -38,12 +39,10 @@ class _StateNotifierProviderPageState
 
   @override
   Widget build(BuildContext context) {
-    final user = ref.watch(userProvider);
+    // ref.watch(userChangeNotifierProvider).user =
+    //     const User(age: 100, name: "Nguyen A");
 
-    // watch the change of userProvider, when any property changing, rebuild all .
-    final userDirect = ref.watch(userProvider).age;
-    // get a property of User, only rebuild with value selected
-    final userSelect = ref.watch(userProvider.select((value) => value.age));
+    final user = ref.watch(userChangeNotifierProvider).user;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -51,7 +50,7 @@ class _StateNotifierProviderPageState
         backgroundColor: Colors.pink[200],
         centerTitle: true,
         title: const Text(
-          "State Notifier Provider",
+          "Change Notifier Provider",
           style: TextStyle(
             fontFamily: "fontApp",
           ),

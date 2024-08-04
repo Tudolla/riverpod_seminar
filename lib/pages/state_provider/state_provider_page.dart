@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/providers/state_provider.dart';
+import 'package:riverpod_seminar/pages/state_provider/state_provider.dart';
 
 // .autoDispose
 final valueStateProvider = StateProvider<int>((ref) => 0);
 
 class StateProviderPage extends ConsumerWidget {
   const StateProviderPage({super.key});
+
+  // void _clickToIncrement(WidgetRef ref){
+  //   ref.read(valueStateProvider.notifier).state++;
+  // }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -73,6 +77,7 @@ class StateProviderPage extends ConsumerWidget {
                 width: 150,
                 child: ElevatedButton(
                   onPressed: () {
+                    // future, stream
                     ref.invalidate(valueStateProvider);
                   },
                   child: const Text(

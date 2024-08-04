@@ -1,11 +1,13 @@
 1.  Provider :
     ProviderRef cho phép tương tác giữa Provider - Provider
-    WidgetRef cho phép tương tác giữa Provider - Widget
+    WidgetRef là 1 object cho phép tương tác giữa Provider - Widget
 
     ConsumerWidget - ConsumerStatefulWidget:
 
     ConsumerWidget sử dụng khi chỉ lắng nghe sử thay đổi của Provider,
     ConsumerStatefulWidget vừa lắng nghe từ Provider, vừa có thể cập nhật nội bộ bằng setState, ...
+
+    khi nào sử dụng Consumer, ConsumerWidget :
 
 2.  StateProvider:
     Cho phép cập nhật state bên ngoài StateProvider, nhưng chỉ cho quản lý những dữ

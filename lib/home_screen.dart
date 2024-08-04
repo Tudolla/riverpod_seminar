@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:riverpod_seminar/pages/change_notifier_provider_page.dart';
-import 'package:riverpod_seminar/pages/future_provider_page.dart';
-import 'package:riverpod_seminar/pages/future_provider_page.dart';
-import 'package:riverpod_seminar/pages/provider_page.dart';
-import 'package:riverpod_seminar/pages/state_notifier_provider_page.dart';
-import 'package:riverpod_seminar/pages/state_provider_page.dart';
-import 'package:riverpod_seminar/pages/stream_provider_page.dart';
+import 'package:riverpod_seminar/pages/change_notifier_provider/change_notifier_provider_page.dart';
+import 'package:riverpod_seminar/pages/future_provider/future_provider_page.dart';
+import 'package:riverpod_seminar/pages/future_provider/future_provider_page.dart';
+import 'package:riverpod_seminar/pages/provider/provider_page.dart';
+import 'package:riverpod_seminar/pages/state_notifider_provider/state_notifier_provider_page.dart';
+import 'package:riverpod_seminar/pages/state_provider/state_provider_page.dart';
+import 'package:riverpod_seminar/pages/stream_provider/stream_provider_page.dart';
 
 class Lamborghini extends StatefulWidget {
   const Lamborghini({super.key});

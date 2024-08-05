@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/pages/state_notifider_provider/state_notifier_provider.dart';
+import 'package:riverpod_seminar/pages/3_state_notifider_provider/state_notifier_provider.dart';
 
 class StateNotifierProviderPage extends ConsumerStatefulWidget {
   @override
@@ -22,6 +22,8 @@ class _StateNotifierProviderPageState
   void _onSubmitAll(WidgetRef ref, String inputAge, String inputName) {
     ref.read(userProvider.notifier).updateAge(int.parse(inputAge));
     _onSubmit(ref, inputName);
+
+    // ref.read(userProvider.notifier).updateNameAndAge(inputName, int.parse(inputAge));
   }
 
   @override
@@ -41,7 +43,7 @@ class _StateNotifierProviderPageState
     final user = ref.watch(userProvider);
 
     // watch the change of userProvider, when any property changing, rebuild all .
-    final userDirect = ref.watch(userProvider).age;
+    final userDirectChange = ref.watch(userProvider).age;
     // get a property of User, only rebuild with value selected
     final userSelect = ref.watch(userProvider.select((value) => value.age));
 

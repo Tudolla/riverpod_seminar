@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/pages/state_provider/state_provider.dart';
+import 'package:riverpod_seminar/pages/2_state_provider/state_provider.dart';
 
 // .autoDispose
 final valueStateProvider = StateProvider<int>((ref) => 0);

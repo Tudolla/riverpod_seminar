@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:riverpod_seminar/pages/change_notifier_provider/change_notifier_provider_page.dart';
-import 'package:riverpod_seminar/pages/future_provider/future_provider_page.dart';
-import 'package:riverpod_seminar/pages/future_provider/future_provider_page.dart';
-import 'package:riverpod_seminar/pages/provider/provider_page.dart';
-import 'package:riverpod_seminar/pages/state_notifider_provider/state_notifier_provider_page.dart';
-import 'package:riverpod_seminar/pages/state_provider/state_provider_page.dart';
-import 'package:riverpod_seminar/pages/stream_provider/stream_provider_page.dart';
+import 'package:riverpod_seminar/pages/6_change_notifier_provider/change_notifier_provider_page.dart';
+import 'package:riverpod_seminar/pages/4_future_provider/future_provider_page.dart';
+import 'package:riverpod_seminar/pages/1_provider/provider_page.dart';
+import 'package:riverpod_seminar/pages/3_state_notifider_provider/state_notifier_provider_page.dart';
+import 'package:riverpod_seminar/pages/2_state_provider/state_provider_page.dart';
+import 'package:riverpod_seminar/pages/5_stream_provider/stream_provider_page.dart';
+import 'package:riverpod_seminar/pages/7_notifier_provider/notifier_provider_page.dart';
 
 class Lamborghini extends StatefulWidget {
   const Lamborghini({super.key});
@@ -170,7 +169,66 @@ class _LamborghiniState extends State<Lamborghini> {
                 ),
               ),
               const SizedBox(
+                height: 30,
+              ),
+              const Center(
+                child: Text(
+                  "New in Riverpod 2.0",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const Divider(
+                color: Colors.grey,
+                height: 1,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                width: sizeOfWidth,
+                height: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.blueGrey.withOpacity(0.5)),
+                child: TextButton(
+                  onPressed: () {
+                    Get.to(() => const NotifierProviderPage());
+                  },
+                  child: const Text(
+                    "Notifier Provider",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
                 height: 10,
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                width: sizeOfWidth,
+                height: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.green.withOpacity(0.5)),
+                child: TextButton(
+                  onPressed: () {
+                    Get.to(() => const ChangeNotifierProviderPage());
+                  },
+                  child: const Text(
+                    "Async Notifier Provider",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

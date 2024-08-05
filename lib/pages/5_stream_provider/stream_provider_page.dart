@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/pages/stream_provider/stream_service.dart';
+import 'package:riverpod_seminar/pages/5_stream_provider/stream_service.dart';
 
 final streamValueProvider = StreamProvider.autoDispose((ref) {
   final streamService = ref.watch(streamServiceProvider);

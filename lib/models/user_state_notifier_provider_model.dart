@@ -3,7 +3,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @immutable
 class User {
@@ -56,21 +55,4 @@ class User {
 
   @override
   int get hashCode => name.hashCode ^ age.hashCode;
-}
-
-class UserNotifier extends StateNotifier<User> {
-  UserNotifier(super.state);
-  // when all the state update => then the Client is listening the changes
-  void updateName(String newName) {
-    // state = User(name: newName, age: state.age);
-    state = state.copyWith(name: newName);
-  }
-
-  void updateAge(int newAge) {
-    state = state.copyWith(age: newAge);
-  }
-
-  void updateNameandAge(String newName, int newAge) {
-    state = state.copyWith(name: newName, age: newAge);
-  }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/pages/change_notifier_provider/change_notifier_provider.dart';
-
-import '../../models/user_change_notifier_provider_model.dart';
+import 'package:riverpod_seminar/pages/6_change_notifier_provider/change_notifier_provider.dart';
 
 class ChangeNotifierProviderPage extends ConsumerStatefulWidget {
   @override

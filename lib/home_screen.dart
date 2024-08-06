@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:riverpod_seminar/pages/6_change_notifier_provider/change_notifier_provider_page.dart';
 import 'package:riverpod_seminar/pages/4_future_provider/future_provider_page.dart';
 import 'package:riverpod_seminar/pages/1_provider/provider_page.dart';
@@ -205,12 +206,30 @@ class _LamborghiniState extends State<Lamborghini> {
                         onPressed: () {
                           Get.to(() => const NotifierProviderPage());
                         },
-                        child: const Text(
-                          "Notifier Provider",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            const Text(
+                              "Notifier \nProvider",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 1,
+                            ),
+                            Container(
+                              height: 50,
+                              width: 50,
+                              padding: const EdgeInsets.all(1),
+                              child: LottieBuilder.asset(
+                                'assets/animation.json',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -228,12 +247,28 @@ class _LamborghiniState extends State<Lamborghini> {
                         onPressed: () {
                           Get.to(() => const AsyncNotifierProviderPage());
                         },
-                        child: const Text(
-                          "Async Notifier Provider",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        child: Row(
+                          children: [
+                            const Text(
+                              "Async\nNotifier\nProvider",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 1,
+                            ),
+                            Container(
+                              height: 50,
+                              width: 50,
+                              padding: const EdgeInsets.all(1),
+                              child: LottieBuilder.asset(
+                                'assets/animation.json',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

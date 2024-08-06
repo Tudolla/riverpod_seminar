@@ -15,7 +15,6 @@ class _AsyncNotifierProviderPageState
   final ScrollController _scrollController = ScrollController();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -48,7 +47,10 @@ class _AsyncNotifierProviderPageState
                       onChanged: (_) {
                         ref
                             .read(asyncTodosProvider.notifier)
-                            .toggleTodoCompletion(todo[index].id.toString());
+                            .toggleTodoCompletion(todo[index].id);
+                        ref
+                            .read(asyncTodosProvider.notifier)
+                            .removeTodo(todo[index].id);
                       },
                     ),
                   );

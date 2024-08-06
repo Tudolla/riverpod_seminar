@@ -49,7 +49,7 @@ class AsyncTodos extends _$AsyncTodos {
     state = await AsyncValue.guard(() => _fetchTodos());
   }
 
-  Future<void> toggleTodoCompletion(String id) async {
+  Future<void> toggleTodoCompletion(int id) async {
     state = await AsyncValue.guard(() async {
       final updatedTodos = [
         for (final todo in await future)
@@ -64,5 +64,29 @@ class AsyncTodos extends _$AsyncTodos {
       ];
       return updatedTodos;
     });
+  }
+
+  // Phương thức để xóa một todo
+  Future<void> removeTodo(int id) async {
+    //  AsyncValue is present for : trạng thái dữ liệu bất đồng bộ (data, loading, error)
+    state = const AsyncValue.loading();
+
+    try {
+      // Lấy danh sách hiện tại
+      // future: lớp tự động được tạo ra: là giá trị hiện tại của state
+      final currentTodos = await future;
+
+      // Xóa todo khỏi danh sách
+      final updatedTodos = currentTodos.where((todo) => todo.id != id).toList();
+
+      // Giả lập việc cập nhật lên API
+      await Future.delayed(const Duration(milliseconds: 300));
+
+      // Cập nhật state với danh sách mới
+      state = AsyncValue.data(updatedTodos);
+    } catch (e, stack) {
+      // Xử lý lỗi
+      state = AsyncValue.error(e, stack);
+    }
   }
 }

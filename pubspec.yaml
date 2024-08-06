@@ -26,6 +26,7 @@ dependencies:
   freezed: ^2.5.2
   json_serializable: ^6.8.0
   build_runner: ^2.4.11
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -40,3 +41,6 @@ flutter:
     - family: fontApp
       fonts:
         - asset: assets\fonts\PTSerif-Bold.ttf
+
+  assets:
+    - assets/

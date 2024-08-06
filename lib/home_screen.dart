@@ -7,6 +7,7 @@ import 'package:riverpod_seminar/pages/3_state_notifider_provider/state_notifier
 import 'package:riverpod_seminar/pages/2_state_provider/state_provider_page.dart';
 import 'package:riverpod_seminar/pages/5_stream_provider/stream_provider_page.dart';
 import 'package:riverpod_seminar/pages/7_notifier_provider/notifier_provider_page.dart';
+import 'package:riverpod_seminar/pages/8_async_notifier_provider/async_notifier_provider_page.dart';
 
 class Lamborghini extends StatefulWidget {
   const Lamborghini({super.key});
@@ -187,47 +188,56 @@ class _LamborghiniState extends State<Lamborghini> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                alignment: Alignment.centerLeft,
-                width: sizeOfWidth,
-                height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.blueGrey.withOpacity(0.5)),
-                child: TextButton(
-                  onPressed: () {
-                    Get.to(() => const NotifierProviderPage());
-                  },
-                  child: const Text(
-                    "Notifier Provider",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
+              SizedBox(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      height: 100,
+                      width: MediaQuery.of(context).size.width / 2.2,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 245, 149, 25)
+                              .withOpacity(0.5)),
+                      child: TextButton(
+                        onPressed: () {
+                          Get.to(() => const NotifierProviderPage());
+                        },
+                        child: const Text(
+                          "Notifier Provider",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                width: sizeOfWidth,
-                height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.green.withOpacity(0.5)),
-                child: TextButton(
-                  onPressed: () {
-                    Get.to(() => const ChangeNotifierProviderPage());
-                  },
-                  child: const Text(
-                    "Async Notifier Provider",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
+                    const SizedBox(
+                      width: 10,
                     ),
-                  ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      height: 100,
+                      width: MediaQuery.of(context).size.width / 2.2,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.green.withOpacity(0.5)),
+                      child: TextButton(
+                        onPressed: () {
+                          Get.to(() => const AsyncNotifierProviderPage());
+                        },
+                        child: const Text(
+                          "Async Notifier Provider",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

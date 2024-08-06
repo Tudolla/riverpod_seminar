@@ -16,8 +16,11 @@ class PlayerNotifier extends _$PlayerNotifier {
     {"name": "Pep Si", "country": "USA"},
     {"name": "Zidance", "country": "France"},
   ];
+
+  // waste my time ERROR:
   @override
-  build() {
+  List<Map<String, dynamic>> build() {
+    // state is returned
     return allPlayer;
   }
 
@@ -25,7 +28,7 @@ class PlayerNotifier extends _$PlayerNotifier {
     if (name.isEmpty) {
       state = allPlayer;
     } else {
-      state = allPlayer.where((player) {
+      state = state.where((player) {
         final playerName = player['name'] as String;
         return playerName.toLowerCase().contains(name.toLowerCase());
       }).toList();

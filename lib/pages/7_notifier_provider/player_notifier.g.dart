@@ -6,12 +6,12 @@ part of 'player_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$playerNotifierHash() => r'b4dc8b5bb5dbca4896f51654a22051047bc9bc5a';
+String _$playerNotifierHash() => r'db67a5e6e6b7a34bb1b58622f5ab0ada7dbedba9';
 
 /// See also [PlayerNotifier].
 @ProviderFor(PlayerNotifier)
-final playerNotifierProvider =
-    AutoDisposeNotifierProvider<PlayerNotifier, Object?>.internal(
+final playerNotifierProvider = AutoDisposeNotifierProvider<PlayerNotifier,
+    List<Map<String, dynamic>>>.internal(
   PlayerNotifier.new,
   name: r'playerNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -21,6 +21,6 @@ final playerNotifierProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$PlayerNotifier = AutoDisposeNotifier<Object?>;
+typedef _$PlayerNotifier = AutoDisposeNotifier<List<Map<String, dynamic>>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

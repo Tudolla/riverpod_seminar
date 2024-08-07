@@ -21,8 +21,8 @@ class StateProviderPage extends ConsumerWidget {
     ref.listen<int>(valueStateProvider, (pre, curr) {
       if (curr == 10) {
         int res = curr - pre!;
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Value is 10 and A = ${res}")));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("10 điểm")));
       }
     });
     //

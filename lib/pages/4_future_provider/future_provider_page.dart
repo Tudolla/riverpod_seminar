@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/models/user_future_provider_model.dart';
 import 'package:riverpod_seminar/pages/4_future_provider/family_page.dart';
+import 'package:riverpod_seminar/pages/4_future_provider/future_provider.dart';
 
 //ProviderRef
 final fetchUserProvider = FutureProvider((ref) {

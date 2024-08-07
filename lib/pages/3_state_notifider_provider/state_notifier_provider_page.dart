@@ -42,9 +42,7 @@ class _StateNotifierProviderPageState
   Widget build(BuildContext context) {
     final user = ref.watch(userProvider);
 
-    // watch the change of userProvider, when any property changing, rebuild all .
     final userDirectChange = ref.watch(userProvider).age;
-    // get a property of User, only rebuild with value selected
     final userSelect = ref.watch(userProvider.select((value) => value.age));
 
     return Scaffold(

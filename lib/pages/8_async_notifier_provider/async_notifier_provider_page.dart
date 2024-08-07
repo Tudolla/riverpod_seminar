@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_seminar/pages/8_async_notifier_provider/async_notifier_provider.dart';
 
+// final list = Provider((ref) => asyncTodosProvider);
+
 class AsyncNotifierProviderPage extends ConsumerStatefulWidget {
   const AsyncNotifierProviderPage({super.key});
 
@@ -16,11 +18,21 @@ class _AsyncNotifierProviderPageState
   @override
   void initState() {
     super.initState();
+    // list;
+    // loadMoreData();
+  }
+
+  void loadMoreData() {
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      ref.watch(asyncTodosProvider);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final todoList = ref.watch(asyncTodosProvider);
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

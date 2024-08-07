@@ -29,8 +29,11 @@ class Todo {
 @riverpod
 class AsyncTodos extends _$AsyncTodos {
   Future<List<Todo>> _fetchTodos() async {
-    final response = await http
-        .get(Uri.parse('https://jsonplaceholder.typicode.com/todos?_limit=10'));
+    int currentSkip = 0;
+    int skip = 10;
+    final response = await http.get(Uri.parse(
+        'https://jsonplaceholder.typicode.com/todos?_limit=10&skip=${currentSkip}'));
+    skip += 10;
     if (response.statusCode == 200) {
       List<dynamic> jsonList = json.decode(response.body);
       return jsonList.map((json) => Todo.fromJson(json)).toList();

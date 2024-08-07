@@ -1,5 +1,7 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_seminar/models/user_change_notifier_provider_model.dart';
 import 'package:riverpod_seminar/pages/6_change_notifier_provider/change_notifier_provider.dart';
 
 class ChangeNotifierProviderPage extends ConsumerStatefulWidget {
@@ -16,11 +18,12 @@ class _ChangeNotifierProviderPageState
   final _ageController = TextEditingController();
 
   void _onSubmitAll(WidgetRef ref, String inputAge, String inputName) {
-    // ref.read(userProvider.notifier).updateAge(int.parse(inputAge));
-    // ref.read(userProvider.notifier).updateNameChange(inputName);
-
     ref.read(userChangeNotifierProvider).updateAgeChange(int.parse(inputAge));
     ref.read(userChangeNotifierProvider).updateNameChange(inputName);
+
+    ref
+        .read(userChangeNotifierProvider)
+        .updateAll(inputName, int.parse(inputAge));
   }
 
   @override
@@ -38,7 +41,7 @@ class _ChangeNotifierProviderPageState
   @override
   Widget build(BuildContext context) {
     // ref.watch(userChangeNotifierProvider).user =
-    //     const User(age: 100, name: "Nguyen A");
+    //     const User(age: 25, name: "Bruno Fenardet");
 
     final user = ref.watch(userChangeNotifierProvider).user;
 
@@ -101,7 +104,7 @@ class _ChangeNotifierProviderPageState
             Container(
               margin: const EdgeInsets.all(15),
               child: Text(
-                "My company name is ${user.name}\n\nI'm ${user.age} years old",
+                "Company name: ${user.name}\n\nI'm ${user.age} years old",
                 style: const TextStyle(
                   fontSize: 25,
                 ),

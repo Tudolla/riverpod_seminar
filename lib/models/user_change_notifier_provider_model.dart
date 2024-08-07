@@ -1,10 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/models/user_state_notifier_provider_model.dart';
 
 @immutable
 class User {
@@ -57,20 +53,4 @@ class User {
 
   @override
   int get hashCode => name.hashCode ^ age.hashCode;
-}
-
-class UserChangeNotifier extends ChangeNotifier {
-  User user = const User(name: '', age: 18);
-
-  void updateNameChange(String n) {
-    user = user.copyWith(name: n);
-
-    notifyListeners();
-  }
-
-  void updateAgeChange(int a) {
-    user = user.copyWith(age: a);
-
-    notifyListeners();
-  }
 }

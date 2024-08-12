@@ -28,15 +28,25 @@ class Todo {
 
 @riverpod
 class AsyncTodos extends _$AsyncTodos {
-  Future<List<Todo>> _fetchTodos() async {
-    int currentSkip = 0;
+  int limit = 20;
+  int currentSkip = 0;
+  List<Todo> todos = [];
 
-    final response = await http.get(Uri.parse(
-        'https://jsonplaceholder.typicode.com/todos?_limit=20&skip=${currentSkip}'));
+  Future<List<Todo>> _fetchTodos() async {
+    // int currentPage = 0;
+    // &skip=${currentPage}
+
+    final response = await http.get(
+      Uri.parse(
+        'https://jsonplaceholder.typicode.com/todos?_limit=$limit&_start=$currentSkip',
+      ),
+    );
 
     if (response.statusCode == 200) {
       List<dynamic> jsonList = json.decode(response.body);
-      return jsonList.map((json) => Todo.fromJson(json)).toList();
+      List<Todo> newList = jsonList.map((json) => Todo.fromJson(json)).toList();
+      todos.addAll(newList);
+      return todos;
     } else {
       throw Exception('Failed to load todos');
     }
@@ -47,9 +57,26 @@ class AsyncTodos extends _$AsyncTodos {
     return _fetchTodos();
   }
 
-  Future<void> refresh() async {
-    state = const AsyncValue.loading();
+  // Future<void> refresh() async {
+  //   currentSkip += limit;
+  //   state = const AsyncValue.loading();
+  //   state = await AsyncValue.guard(() => _fetchTodos());
+  // }
+
+  Future<void> loadMore() async {
+    currentSkip += limit;
     state = await AsyncValue.guard(() => _fetchTodos());
+  }
+
+  void refresh() {
+    currentSkip = 0;
+    todos.clear();
+    state = const AsyncValue.loading();
+    _fetchTodos().then((todos) {
+      state = AsyncValue.data(todos);
+    }).catchError((error) {
+      state = AsyncValue.error(error, StackTrace.current);
+    });
   }
 
   Future<void> toggleTodoCompletion(int id) async {
@@ -63,7 +90,7 @@ class AsyncTodos extends _$AsyncTodos {
                 title: todo.title,
                 completed: !todo.completed)
           else
-            todo
+            todo,
       ];
       return updatedTodos;
     });

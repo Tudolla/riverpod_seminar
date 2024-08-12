@@ -57,17 +57,12 @@ class AsyncTodos extends _$AsyncTodos {
     return _fetchTodos();
   }
 
-  // Future<void> refresh() async {
-  //   currentSkip += limit;
-  //   state = const AsyncValue.loading();
-  //   state = await AsyncValue.guard(() => _fetchTodos());
-  // }
-
   Future<void> loadMore() async {
     currentSkip += limit;
     state = await AsyncValue.guard(() => _fetchTodos());
   }
 
+  // cumbersome if not using ref.invalidate
   void refresh() {
     currentSkip = 0;
     todos.clear();
@@ -85,10 +80,11 @@ class AsyncTodos extends _$AsyncTodos {
         for (final todo in await future)
           if (todo.id == id)
             Todo(
-                userId: todo.userId,
-                id: todo.id,
-                title: todo.title,
-                completed: !todo.completed)
+              userId: todo.userId,
+              id: todo.id,
+              title: todo.title,
+              completed: !todo.completed,
+            )
           else
             todo,
       ];

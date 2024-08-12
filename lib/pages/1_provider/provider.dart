@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // provider return String
-final nameProvider = Provider<String>((ref) => "Hello Provider");
+final nameProvider = Provider<String>((ref) => "  Hello Provider 2024");
 
 // provider return Object
 final footballerProvider = Provider<Footballer>(
   (ref) => Footballer(
-    name: "Tiến Linh",
+    name: "Junior Neymar",
     age: 18,
     fcClub: "HAGL",
   ),

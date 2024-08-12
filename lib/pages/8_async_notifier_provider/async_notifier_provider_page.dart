@@ -87,6 +87,8 @@ class _AsyncNotifierProviderPageState
         onPressed: () {
           // return the inital state of Provider
           ref.invalidate(asyncTodosProvider);
+
+          // return ui back
           _scrollController.animateTo(
             0,
             duration: const Duration(milliseconds: 100),

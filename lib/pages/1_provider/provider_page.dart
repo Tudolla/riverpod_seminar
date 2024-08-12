@@ -43,13 +43,13 @@ class ProviderPage extends ConsumerWidget {
                 height: 80,
               ),
               Text(
-                "${footballer.name}",
+                "* ${footballer.name}",
               ),
               Text(
-                "${footballer.age}",
+                "* ${footballer.age}",
               ),
               Text(
-                "${footballer.fcClub}",
+                "* ${footballer.fcClub}",
               ),
             ],
           ),

@@ -3,7 +3,8 @@
     #### Denifition:
 
     ChangeNotifierProvider tương tự, có thể làm được những điều mà StateNotifierProvider làm được,
-    tuy nhiên : nó hiệu suất kém, khó kiểm thử, mutable - nguy hiểm vì khó kiểm soát sự thay đổi
+    tuy nhiên : nó hiệu suất kém, khó kiểm thử, mutable - nguy hiểm vì khó kiểm soát sự thay đổi ,
+    VD: trong 1 ứng dụng lớn, mà không biết dữ liệu đã bị thay đổi ở đoạn nào thì hơi nguy hiểm.
 
     User for:
     Giống StateNotifierProvider.

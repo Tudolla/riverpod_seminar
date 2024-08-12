@@ -18,21 +18,14 @@
     - getUserByName();
       }
 
-    #### ProviderRef giúp trao đổi giữa Provider với Provider khác, nó đóng gói UserRepository(),
-
-    #### trả về instance, giúp tối ưu memory, vì trong UserRepository có thể gồm 20 function,
-
-    #### khi sử dụng mà cứ phải khai báo UserRepository ở các class khác thì sẽ tốn công tốn của,
-
-    #### mà như đã nói : Provider nằm ngoài các Widget, nghĩa là Global, nên ở đây, chỉ cần khởi
-
-    #### tạo 1 instance của UserRepository trong 'user' như bên dưới là tốt.
-
-    #### có điểm hay ở đây, là Provider không chỉ quản lý dữ liệu đơn giản, mà có thể đóng gói
-
-    #### dữ liệu phức tạo như UserRepository(), dĩ nhiên, nó chỉ là người vận chuyển, chứ không phải
-
-    #### người xử lý logic, dữ liệu phức tạp.
+    ProviderRef giúp trao đổi giữa Provider với Provider khác, nó đóng gói UserRepository(),
+    trả về instance, giúp tối ưu memory, vì trong UserRepository có thể gồm 20 function,
+    khi sử dụng mà cứ phải khai báo UserRepository ở các class khác thì sẽ tốn công tốn của,
+    mà như đã nói : Provider nằm ngoài các Widget, nghĩa là Global, nên ở đây, chỉ cần khởi
+    tạo 1 instance của UserRepository trong 'user' như bên dưới là tốt.
+    có điểm hay ở đây, là Provider không chỉ quản lý dữ liệu đơn giản, mà có thể đóng gói
+    dữ liệu phức tạo như UserRepository(), dĩ nhiên, nó chỉ là người vận chuyển, chứ không phải
+    người xử lý logic, dữ liệu phức tạp.
 
     final userRepository = Provider((ref) = UserRepository());
 

@@ -1,8 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-
-@immutable
 class User {
   final String name;
   final int age;

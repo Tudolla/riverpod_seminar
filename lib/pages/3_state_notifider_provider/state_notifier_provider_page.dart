@@ -67,13 +67,14 @@ class _StateNotifierProviderPageState
               child: TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    hintText: "Enter name company",
-                    hintStyle: const TextStyle(
-                      fontSize: 20,
-                    )),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  hintText: "Enter name company",
+                  hintStyle: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
             const SizedBox(

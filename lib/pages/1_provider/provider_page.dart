@@ -10,6 +10,7 @@ class ProviderPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final getNameProvider = ref.read(nameProvider);
+    final footballer = ref.read(footballerProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -24,19 +25,34 @@ class ProviderPage extends ConsumerWidget {
       ),
 
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              getNameProvider,
-              style: const TextStyle(
-                color: Colors.green,
-                fontFamily: "fontApp",
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
+        child: DefaultTextStyle(
+          style: const TextStyle(
+            color: Colors.green,
+            fontFamily: "fontApp",
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                getNameProvider,
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 80,
+              ),
+              Text(
+                "${footballer.name}",
+              ),
+              Text(
+                "${footballer.age}",
+              ),
+              Text(
+                "${footballer.fcClub}",
+              ),
+            ],
+          ),
         ),
       ),
 

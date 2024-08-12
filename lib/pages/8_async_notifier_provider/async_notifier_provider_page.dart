@@ -15,12 +15,6 @@ class AsyncNotifierProviderPage extends ConsumerStatefulWidget {
 class _AsyncNotifierProviderPageState
     extends ConsumerState<AsyncNotifierProviderPage> {
   final ScrollController _scrollController = ScrollController();
-  @override
-  void initState() {
-    super.initState();
-    // list;
-    // loadMoreData();
-  }
 
   void loadMoreData() {
     if (_scrollController.position.pixels ==

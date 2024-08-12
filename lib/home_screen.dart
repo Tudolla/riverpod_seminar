@@ -65,8 +65,7 @@ class _LamborghiniState extends State<Lamborghini> {
                     color: Colors.pinkAccent.withOpacity(0.6)),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const StateProviderPage()));
+                    Get.to(() => const StateProviderPage());
                   },
                   child: const Text(
                     "State Provider",
@@ -89,6 +88,11 @@ class _LamborghiniState extends State<Lamborghini> {
                     color: Colors.purple.withOpacity(0.4)),
                 child: TextButton(
                   onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const StateNotifierProviderPage(),
+                      ),
+                    );
                     Get.to(() => const StateNotifierProviderPage());
                   },
                   child: const Text(

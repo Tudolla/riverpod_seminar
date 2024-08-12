@@ -2,11 +2,10 @@
 
     Denifition:
     Provider là 1 Object dùng để đóng gói các trạng thái của (state - bất kì dữ liệu nào trong ứng dụng)
-    và lắng nghe sự thay đổi của state đó.
 
     Use for:
     Quản lí dữ liệu là bất biến.
-    VD: final name = StateProvider<String>((ref)=> "Ngoc Ngan"); //ref ở đây là ProvideRef
+    VD: final name = Provider<String>((ref)=> "Ngoc Ngan"); //ref ở đây là ProvideRef
 
     dữ liệu của biến name luôn luôn là "Ki Duyen", không thể thay đổi trong ứng dụng.
 

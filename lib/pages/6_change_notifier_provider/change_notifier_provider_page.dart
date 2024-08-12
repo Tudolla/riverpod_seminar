@@ -1,7 +1,5 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_seminar/models/user_change_notifier_provider_model.dart';
 import 'package:riverpod_seminar/pages/6_change_notifier_provider/change_notifier_provider.dart';
 
 class ChangeNotifierProviderPage extends ConsumerStatefulWidget {

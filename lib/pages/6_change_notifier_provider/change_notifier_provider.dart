@@ -22,7 +22,6 @@ class UserChangeNotifier extends ChangeNotifier {
 
   void updateAll(String n, int a) {
     user = User(name: n, age: a);
-    // user = user.copyWith(name: n, age: a);
 
     notifyListeners();
   }

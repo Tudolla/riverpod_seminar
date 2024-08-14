@@ -5,7 +5,7 @@ final userProvider = StateNotifierProvider<UserNotifier, User>(
   (ref) => UserNotifier(
     const User(
       name: "...",
-      age: 1,
+      age: 0,
     ),
   ),
 );

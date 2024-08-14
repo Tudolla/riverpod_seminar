@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_seminar/models/user_change_notifier_provider_model.dart';
 import 'package:riverpod_seminar/pages/6_change_notifier_provider/change_notifier_provider.dart';
 
 class ChangeNotifierProviderPage extends ConsumerStatefulWidget {
@@ -15,13 +16,15 @@ class _ChangeNotifierProviderPageState
   final _nameController = TextEditingController();
   final _ageController = TextEditingController();
 
-  void _onSubmitAll(WidgetRef ref, String inputAge, String inputName) {
-    ref.read(userChangeNotifierProvider).updateAgeChange(int.parse(inputAge));
-    ref.read(userChangeNotifierProvider).updateNameChange(inputName);
-
-    ref
-        .read(userChangeNotifierProvider)
-        .updateAll(inputName, int.parse(inputAge));
+  void _onSubmitAll(
+    WidgetRef ref,
+    String inputAge,
+    String inputName,
+  ) {
+    ref.read(userChangeNotifierProvider).updateAll(
+          inputName,
+          int.parse(inputAge),
+        );
   }
 
   @override
@@ -38,8 +41,8 @@ class _ChangeNotifierProviderPageState
 
   @override
   Widget build(BuildContext context) {
-    // ref.watch(userChangeNotifierProvider).user =
-    //     const User(age: 25, name: "Bruno Fenardet");
+    //  ref.watch(userChangeNotifierProvider).user =
+    //    const  User(age: 25, name: "Bruno Fenardet");
 
     final user = ref.watch(userChangeNotifierProvider).user;
 
@@ -65,13 +68,14 @@ class _ChangeNotifierProviderPageState
               child: TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    hintText: "Enter name company",
-                    hintStyle: const TextStyle(
-                      fontSize: 20,
-                    )),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  hintText: "Enter name company",
+                  hintStyle: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -82,15 +86,19 @@ class _ChangeNotifierProviderPageState
               child: TextField(
                 controller: _ageController,
                 onSubmitted: (value) => _onSubmitAll(
-                    ref, _ageController.text, _nameController.text),
+                  ref,
+                  _ageController.text,
+                  _nameController.text,
+                ),
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    hintText: "Enter your age",
-                    hintStyle: const TextStyle(
-                      fontSize: 20,
-                    )),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  hintText: "Enter your age",
+                  hintStyle: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
             const SizedBox(

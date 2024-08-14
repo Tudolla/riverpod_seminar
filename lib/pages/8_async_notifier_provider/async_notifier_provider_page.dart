@@ -59,7 +59,7 @@ class _AsyncNotifierProviderPageState
                 onChanged: (_) {
                   ref
                       .read(asyncTodosProvider.notifier)
-                      .toggleTodoCompletion(todo[index].id);
+                      .toggleTodoCompleted(todo[index].id);
                   ref
                       .read(asyncTodosProvider.notifier)
                       .removeTodo(todo[index].id);

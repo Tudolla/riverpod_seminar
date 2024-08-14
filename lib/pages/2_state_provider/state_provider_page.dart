@@ -20,7 +20,6 @@ class StateProviderPage extends ConsumerWidget {
 
     ref.listen<int>(valueStateProvider, (pre, curr) {
       if (curr == 10) {
-        int res = curr - pre!;
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text("10 điểm")));
       }
@@ -106,13 +105,14 @@ class StateProviderPage extends ConsumerWidget {
                   ref.watch(companyProvider.notifier).update((state) => value);
                 },
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    hintText: "Enter name company",
-                    hintStyle: const TextStyle(
-                      fontSize: 20,
-                    )),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  hintText: "Enter name company",
+                  hintStyle: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
             const SizedBox(

@@ -4,7 +4,7 @@
     Provider là 1 Object dùng để đóng gói các trạng thái của (state - bất kì dữ liệu nào trong ứng dụng)
 
     Use for:
-    Quản lí dữ liệu là bất biến.
+    Quản lí dữ liệu là bất biến hoặc instance của Object, Class
     VD: final name = Provider<String>((ref)=> "Ngoc Ngan"); //ref ở đây là ProvideRef
 
     dữ liệu của biến name luôn luôn là "Ki Duyen", không thể thay đổi trong ứng dụng.

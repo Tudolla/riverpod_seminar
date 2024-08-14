@@ -10,11 +10,12 @@ class Todo {
   final String title;
   final bool completed;
 
-  Todo(
-      {required this.userId,
-      required this.id,
-      required this.title,
-      required this.completed});
+  Todo({
+    required this.userId,
+    required this.id,
+    required this.title,
+    required this.completed,
+  });
 
   factory Todo.fromJson(Map<String, dynamic> json) {
     return Todo(
@@ -33,9 +34,6 @@ class AsyncTodos extends _$AsyncTodos {
   List<Todo> todos = [];
 
   Future<List<Todo>> _fetchTodos() async {
-    // int currentPage = 0;
-    // &skip=${currentPage}
-
     final response = await http.get(
       Uri.parse(
         'https://jsonplaceholder.typicode.com/todos?_limit=$limit&_start=$currentSkip',
@@ -74,7 +72,7 @@ class AsyncTodos extends _$AsyncTodos {
     });
   }
 
-  Future<void> toggleTodoCompletion(int id) async {
+  Future<void> toggleTodoCompleted(int id) async {
     state = await AsyncValue.guard(() async {
       final updatedTodos = [
         for (final todo in await future)

@@ -6,7 +6,7 @@ part of 'async_notifier_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$asyncTodosHash() => r'1cda6b239857f1bf533ef56c8e02019263702741';
+String _$asyncTodosHash() => r'dbc755f86115d5b7da1de11db13374cc13c98b16';
 
 /// See also [AsyncTodos].
 @ProviderFor(AsyncTodos)
